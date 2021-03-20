@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./styles/styles.css"> -->
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 2px;
+        }
+
+        body{
+            margin: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+        }
+
+        input{
+            cursor: pointer;
+        }
+    </style>
+    <title>Gradients4You</title>
+</head>
+<body id="gradient">
+    <h1>Gradients4You</h1>
+    <div class="container">
+        <input class="c1" type="color" name="color1" value="#89f7fe">
+        <input class="c2" type="color" name="color2" value="#89f700">
+    </div>
+    <h2>current css property</h2>
+    <h3 class="c">background: linear-gradient(120deg, #89f7fe, #66a6ff);</h3>
+    <!-- <script src="./app/app.js"></script> -->
+    <script>
+        var color1 = document.querySelector('.c1')
+        var color2 = document.querySelector('.c2')
+        var css = document.querySelector('h3')
+        var body = document.getElementById("gradient");
+
+
+        function setGradient(){
+            // console.log(color1.value)
+            body.style.background = `linear-gradient(to right, ${color1.value}, ${color2.value})`
+            css.textContent = body.style.background + ";";
+        }
+
+        color1.addEventListener('input', setGradient)
+
+        color2.addEventListener('input', setGradient)
+    </script>
+    
+</body>
+</html>
